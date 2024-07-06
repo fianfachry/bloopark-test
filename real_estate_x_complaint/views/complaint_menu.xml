@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- COMPLAINTS MENU, CAN ONLY BE ACCESSED BY CS REPRESENTATIVE AND SUPERVISOR -->
+    <menuitem
+        name="Complaints"
+        id="menu_main_complaint"
+        groups="real_estate_x_complaint.group_cs_representative"
+        web_icon="real_estate_x_complaint,static/description/icon.png"
+        sequence="70"
+    >
+        <!-- SUBMENU FOR ALL COMPLAINTS, CAN ONLY BE ACCESSED BY CS REPRESENTATIVE AND SUPERVISOR -->
+        <menuitem
+            name="All"
+            id="menu_complaint_all"
+            action="action_complaint_all"
+            sequence="1"
+        />
+        <!-- SUBMENU FOR ONLY IN PROGRESS COMPLAINTS, CAN ONLY BE ACCESSED BY SUPERVISOR -->
+        <menuitem
+            name="Need Supervision"
+            id="menu_complaint_supervision"
+            action="action_complaint_supervision"
+            sequence="2"
+            groups="real_estate_x_complaint.group_cs_supervisor"
+        />
+    </menuitem>
+</odoo>

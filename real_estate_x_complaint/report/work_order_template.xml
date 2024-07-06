@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Please excuse my lack of knowledge in terms of DIN 5008 standard. -->
+    <!-- I do my best to study, research, and implement it. -->
+    <template id="report_work_order">
+        <t t-call="web.basic_layout">
+            <div class="page">
+                <!-- Company Header -->
+                <div style="position: absolute; top: 2.7cm; left: 2.5cm; right: 2.0cm;">
+                    <div t-field="doc.env.company.name" style="font-size: 12pt;" />
+                    <div t-field="doc.env.company.street" />
+                    <div t-field="doc.env.company.zip" />
+                    <span t-field="doc.env.company.city" />
+                </div>
+
+                <!-- Recipient Address -->
+                <div style="position: absolute; top: 4.5cm; left: 2.5cm;">
+                    <div t-field="doc.tenant_name" style="font-size: 12pt;" />
+                    <div t-field="doc.address" />
+                </div>
+
+                <!-- Date -->
+                <div style="position: absolute; top: 2.7cm; right: 2.0cm;">
+                    <span t-field="doc.create_date" t-options='{"widget": "date"}' />
+                </div>
+
+                <!-- Subject Line -->
+                <div style="position: absolute; top: 6.5cm; left: 2.5cm; font-weight: bold;">
+                    <t t-esc="doc.name" />
+                </div>
+
+                <!-- Salutation -->
+                <div style="position: absolute; top: 8.0cm; left: 2.5cm;">
+                    <p>Dear <t t-esc="doc.tenant_name" />,</p>
+                </div>
+
+                <!-- Body Text -->
+                <div style="position: absolute; top: 9.0cm; left: 2.5cm; right: 2.0cm;">
+                    <p>Our team will soon come and solve your problem.</p>
+                    <p>Thank you for your patience.</p>
+                </div>
+
+                <!-- Closing -->
+                <div style="position: absolute; top: 24.0cm; left: 2.5cm;">
+                    <p>Sincerely,</p>
+                    <br />
+                    <p>
+                        <span t-field="doc.env.company.name" />
+                    </p>
+                    <p>
+                        <span t-field="doc.env.user.name" />
+                    </p>
+                </div>
+
+                <!-- Signature -->
+                <div style="position: absolute; top: 22.0cm; left: 2.5cm;">
+                    <p>__________________________</p>
+                </div>
+            </div>
+        </t>
+    </template>
+
+</odoo>

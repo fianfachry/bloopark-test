@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- PAPERFORMAT USED IN THE WORK ORDER REPORT -->
+    <!-- SET ALL MARGINS TO 0 BECAUSE ALL HANDLED IN THE TEMPLATE -->
+    <record id="paperformat_din5008" model="report.paperformat">
+        <field name="name">DIN 5008</field>
+        <field name="default" eval="True"/>
+        <field name="format">A4</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">0</field>
+        <field name="margin_bottom">0</field>
+        <field name="margin_left">0</field>
+        <field name="margin_right">0</field>
+        <field name="header_spacing">0</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <!-- REPORT ACTION -->
+    <!-- NOT BINDING TO THE MODEL, BECAUSE WE WANT TO RESTRICT UNAUTHORIZED USER TO BE ABLE TO PRINT -->
+    <!-- ONLY CS SUPERVISOR CAN PRINT FROM THE FORM VIEW IN THE 'IN PROGRESS' STAGE -->
+    <record id="action_report_work_order" model="ir.actions.report">
+        <field name="name">Work Order</field>
+        <field name="model">complaint.complaint</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">real_estate_x_complaint.report_work_order</field>
+        <field name="report_file">real_estate_x_complaint.report_work_order</field>
+        <field name="print_report_name">'Complaint - %s' %(object.name)</field>
+        <field name="paperformat_id" ref="real_estate_x_complaint.paperformat_din5008"/>
+    </record>
+</odoo>

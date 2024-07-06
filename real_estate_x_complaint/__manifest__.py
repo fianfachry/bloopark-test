@@ -1,0 +1,22 @@
+{
+    'name': 'Real Estate X - Complaint',
+    'version': '17.0.1.0.0',
+    'author': 'Fian Fachry',
+    'category': 'Website',
+    'summary': 'A complaint form module for a real estate company in Germany called RealEstateX.',
+    'depends': ['base', 'website'],
+    'data': [
+        'security/complaint_security.xml',
+        'security/ir.model.access.csv',
+        'data/website_data.xml',
+        'data/ir_sequence_data.xml',
+        'data/complaint_data.xml',
+        'views/complaint_view.xml',
+        'views/complaint_menu.xml',
+        'report/work_order_template.xml',
+        'report/ir_actions_report.xml',
+    ],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+}
